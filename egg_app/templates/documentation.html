@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Farm Monitoring</title>
+    <link rel="stylesheet" href="{% static 'css/documentation.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="text-center py-4">
+            <h1>Documentation - Farm Monitoring</h1>
+            <p class="lead">Suivi de la température, l’humidité et la production d'œufs</p>
+        </header>
+
+        <section class="content">
+            <h2>1. Introduction</h2>
+            <p>L’application <strong>Farm Monitoring</strong> permet d’enregistrer et d’analyser les conditions climatiques de la ferme.</p>
+            <ul>
+                <li> Enregistrement des relevés climatiques et de ponte.</li>
+                <li> Affichage des données sous forme de tableau.</li>
+                <li> Visualisation des tendances avec des graphiques interactifs.</li>
+                <li> Exportation des données.</li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h2>2. Technologies Utilisées</h2>
+            <table class="table table-bordered">
+                <tr><th>Composant</th><th>Technologie</th></tr>
+                <tr><td>Back-end</td><td>Django</td></tr>
+                <tr><td>Base de données</td><td>SQLite </td></tr>
+                <tr><td>Front-end</td><td>Bootstrap, HTML, CSS</td></tr>
+                <tr><td>Visualisation</td><td>Plotly, Pandas</td></tr>
+            </table>
+        </section>
+
+        <section class="content">
+            <h2>3. Installation</h2>
+            <pre>
+git clone <repo_url>
+cd farm_monitoring
+python -m venv venv
+Windows : venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+            </pre>
+        </section>
+
+        <section class="content">
+            <h2>4. Modèle de Données</h2>
+            <pre>
+class Measurement(models.Model):
+    date = models.DateField(auto_now_add=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    egg_count = models.IntegerField()
+            </pre>
+        </section>
+
+        <section class="content">
+            <h2>5. Dashboard</h2>
+            <p>Affichage des graphiques interactifs pour suivre l’évolution des données.</p>
+            <pre>
+fig_temp = px.line(df, x="date", y="temperature", title="Température")
+fig_humidity = px.line(df, x="date", y="humidity", title="Humidité")
+fig_eggs = px.bar(df, x="date", y="egg_count", title="Nombre d'œufs")
+            </pre>
+        </section>
+
+       
+    </div>
+
+</body>
+</html>
+
+
+
+{% endblock content%}

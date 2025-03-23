@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Ajouter une nouvelle mesure</h2>
+        
+        <form method="post" class="mt-4 shadow p-4 bg-light rounded">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_date" class="form-label">Date</label>
+                {{ form.date }}
+            </div>
+            <div class="mb-3">
+                <label for="id_temperature" class="form-label">Température (°C)</label>
+                {{ form.temperature }}
+            </div>
+            <div class="mb-3">
+                <label for="id_humidity" class="form-label">Humidité (%)</label>
+                {{ form.humidity }}
+            </div>
+            <div class="mb-3">
+                <label for="id_egg_count" class="form-label">Nombre d'œufs</label>
+                {{ form.egg_count }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/" class="btn btn-secondary">Retour à l'accueil</a>
+        </div>
+    </div>
+    {% endblock content %}

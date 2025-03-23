@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Dashboard - Analyse des Données</h2>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Évolution de la Température</h4>
+                    {{ temp_graph|safe }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Évolution de l’Humidité</h4>
+                    {{ humidity_graph|safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Production d'œufs quotidienne</h4>
+                    {{ egg_graph|safe }}
+                </div>
+            </div>
+        </div>
+        <!-- <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center">Corrélation Température, Humidité et Production d'œufs</h4>
+                <div>{{ cumulative_graph|safe }}</div>
+            </div>
+        </div> -->
+        
+        <div class="text-center mt-3">
+            <a href="/" class="btn btn-secondary">Retour à l'accueil</a>
+        </div>
+    </div>
+    {% endblock content %}
