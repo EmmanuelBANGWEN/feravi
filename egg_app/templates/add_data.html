@@ -14,22 +14,26 @@
                 {{ form.date }}
             </div>
             <div class="mb-3">
-                <label for="id_temperature" class="form-label">Température (°C)</label>
+                <!-- <label for="id_temperature" class="form-label">Température (°C)</label> -->
                 {{ form.temperature }}
             </div>
             <div class="mb-3">
-                <label for="id_humidity" class="form-label">Humidité (%)</label>
+                <!-- <label for="id_humidity" class="form-label">Humidité (%)</label> -->
                 {{ form.humidity }}
             </div>
             <div class="mb-3">
-                <label for="id_egg_count" class="form-label">Nombre d'œufs</label>
+                <!-- <label for="id_egg_count" class="form-label">Nombre d'œufs</label> -->
                 {{ form.egg_count }}
+            </div>
+            <div class="mb-3">
+                <!-- <label for="id_chicken_count" class="form-label">Nombre de poules</label> -->
+                {{ form.chicken_count }}
             </div>
             <button type="submit" class="btn btn-primary w-100">Ajouter</button>
         </form>
 
         <div class="text-center mt-3">
-            <a href="/" class="btn btn-secondary">Retour à l'accueil</a>
+            <a href="/" class="btn btn-primary">Retour à l'accueil</a>
         </div>
     </div>
     {% endblock content %}

@@ -1,15 +1,31 @@
 from django.shortcuts import render, redirect
-from .models import data
+from .models import Data
 from .forms import DataForm
 import plotly.express as px
 import pandas as pd
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 def home(request):
     # Récupération de toutes les données de la base
-    dataset = data.objects.all().order_by('-date')  # Trier par date décroissante
+    dataset = Data.objects.all().order_by('-date')  # Trier par date décroissante
 
-    return render(request, "home.html", {"dataset": dataset})
+    paginator = Paginator(dataset, 5)
+    page = request.GET.get('page')
+    try:
+        dataset = paginator.page(page)
+    except PageNotAnInteger :
+        dataset = paginator.page(1)
+    except EmptyPage :
+        dataset = paginator.page(paginator.num_pages)
+        
+    context = {
+        'dataset' : dataset,
+        'page'  : page,
+
+}
+
+    return render(request, "home.html", context)
 
 def add_data(request):
     if request.method == "POST":
@@ -25,7 +41,7 @@ def add_data(request):
 
 def dashboard(request):
     # Récupération des données
-    dataset = data.objects.all()
+    dataset = Data.objects.all()
     
     # Transformation en DataFrame pandas
     df = pd.DataFrame(list(dataset.values()))
@@ -36,13 +52,16 @@ def dashboard(request):
         df = df.sort_values(by="date")  # Trier par date croissante
 
         # Graphique de l'évolution de la température
-        fig_temp = px.line(df, x="date", y="temperature", title="Évolution de la Température")
+        # fig_temp = px.line(df, x="date", y="temperature", title="Évolution de la Température")
+        fig_temp = px.line(df, x="date", y="temperature")
 
         # Graphique de l'humidité
-        fig_humidity = px.line(df, x="date", y="humidity", title="Évolution de l’Humidité")
+        # fig_humidity = px.line(df, x="date", y="humidity", title="Évolution de l’Humidité")
+        fig_humidity = px.line(df, x="date", y="humidity")
 
         # Graphique du nombre d'œufs
-        fig_eggs = px.bar(df, x="date", y="egg_count", title="Production d'œufs quotidienne")
+        # fig_eggs = px.bar(df, x="date", y="egg_count", title="Production d'œufs quotidienne")
+        fig_eggs = px.bar(df, x="date", y="egg_count")
 
         # Conversion en JSON pour Plotly
         temp_graph = fig_temp.to_html(full_html=False)
@@ -62,3 +81,17 @@ def dashboard(request):
 
 def documentation(request):
     return render(request, "documentation.html")
+
+from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect 
+
+
+def delete(request, date):
+    try:
+        enregistrement = Data.objects.get(date=date)
+        enregistrement.delete()
+        messages.success(request, "L'animal a été supprimé avec succès.")
+    except Data.DoesNotExist:
+        messages.error(request, "Cet animal n'existe pas ou ne vous appartient pas.")
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

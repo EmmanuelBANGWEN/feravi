@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation - Farm Monitoring</title>
+    <title>Documentation - Feravi stat</title>
     <link rel="stylesheet" href="{% static 'css/documentation.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
@@ -16,13 +16,13 @@
 
     <div class="container">
         <header class="text-center py-4">
-            <h1>Documentation - Farm Monitoring</h1>
+            <h1>Documentation - Feravi stat</h1>
             <p class="lead">Suivi de la température, l’humidité et la production d'œufs</p>
         </header>
 
         <section class="content">
             <h2>1. Introduction</h2>
-            <p>L’application <strong>Farm Monitoring</strong> permet d’enregistrer et d’analyser les conditions climatiques de la ferme.</p>
+            <p>L’application <strong>Feravi stat</strong> permet d’enregistrer et d’analyser les conditions climatiques de la ferme.</p>
             <ul>
                 <li> Enregistrement des relevés climatiques et de ponte.</li>
                 <li> Affichage des données sous forme de tableau.</li>
@@ -63,6 +63,7 @@ class Measurement(models.Model):
     temperature = models.FloatField()
     humidity = models.FloatField()
     egg_count = models.IntegerField()
+    chicken_count = models.IntegerField()
             </pre>
         </section>
 
@@ -73,6 +74,7 @@ class Measurement(models.Model):
 fig_temp = px.line(df, x="date", y="temperature", title="Température")
 fig_humidity = px.line(df, x="date", y="humidity", title="Humidité")
 fig_eggs = px.bar(df, x="date", y="egg_count", title="Nombre d'œufs")
+fig_chicken = px.bar(df, x="date", y="chicken_count", title="Nombre de poules")
             </pre>
         </section>
 

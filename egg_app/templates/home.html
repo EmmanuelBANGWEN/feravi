@@ -13,27 +13,49 @@
                         <th>Température (°C)</th>
                         <th>Humidité (%)</th>
                         <th>Nombre d'œufs</th>
+                        <th>Nombre de poules</th>
+                        <!-- <th>Supprimer</th> -->
                     </tr>
                 </thead>
+                <div class="list-group">
+
                 <tbody>
                     {% for entry in dataset %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+
                         <tr>
                             <td>{{ entry.date }}</td>
                             <td>{{ entry.temperature }}</td>
                             <td>{{ entry.humidity }}</td>
                             <td>{{ entry.egg_count }}</td>
+                            <td>{{ entry.chicken_count }}</td>
+                            <!-- <th>
+                                <form method="GET" action="{% url 'home' %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger btn-sm btn-animated" type="submit">Supprimer</button>
+                                </form>
+                            </th> -->
+
                         </tr>
+                        <!-- <form method="GET" class="d-inline">
+                            {% csrf_token %}
+                            <button class="btn btn-danger btn-sm btn-animated" type="submit">Supprimer</button>
+                        </form> -->
+                        </div>
                     {% empty %}
                         <tr>
                             <td colspan="4" class="text-center">Aucune donnée disponible</td>
                         </tr>
                     {% endfor %}
+                </div>
+
                 </tbody>
-            </table>
+            </table>        {% include "pagination.html" with page=dataset %}
+           
         </div>
-        
+
         <div class="text-center mt-4">
-            <a href="{% url 'add_data' %}" class="btn btn-success">Ajouter des Données</a>
+            <a href="{% url 'add_data' %}" class="btn btn-primary">Ajouter des Données</a>
         </div>
     </div>
     {% endblock content %}
