@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="card shadow-lg" style="width: 100%; max-width: 400px; border-radius: 10px;">
+        <div class="card-body p-4">
+            <h3 class="card-title text-center mb-4" style="font-weight: bold; color: #343a40;">Connexion</h3>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Nom d'utilisateur</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mot de passe</label>
+                    {{ form.email }}
+                </div>                <div class="mb-3">
+                    <label class="form-label">Mot de passe</label>
+                    {{ form.password1 }}
+                </div>                <div class="mb-3">
+                    <label class="form-label">Mot de passe</label>
+                    {{ form.password2 }}
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+            </form>
+
+            <p class="text-center mt-3">
+                Vous n'avez pas de compte ? <a href="{% url 'register' %}" class="text-success fw-bold">Créer un compte</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    body {
+        /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+        color: #343a40;
+    }
+
+    .card {
+        background-color: #f8f9fa;
+        border: none;
+    }
+
+    .btn-success {
+        background-color: #43a047;
+        border: none;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-success:hover {
+        background-color: #388e3c;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-success:active {
+        transform: scale(0.98);
+    }
+</style>
+
+{% endblock content %}

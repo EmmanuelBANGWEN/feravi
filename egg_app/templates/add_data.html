@@ -6,12 +6,25 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Ajouter une nouvelle mesure</h2>
-        
+        {% if messages %}
+                        <div class="text-center alert alert-success">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
         <form method="post" class="mt-4 shadow p-4 bg-light rounded">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="id_date" class="form-label">Date</label>
                 {{ form.date }}
+            </div>    
+            
+            
+            
+            <div class="mb-3">
+                <label for="id_heure" class="form-label">Heure</label>
+                {{ form.time_slot }}
             </div>
             <div class="mb-3">
                 <!-- <label for="id_temperature" class="form-label">Température (°C)</label> -->

@@ -3,6 +3,12 @@
 {% load static %}
 {% block content%}
     <div class="container mt-4">
+
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} text-center" >{{ message }}</div>
+        {% endfor %}
+    {% endif %}
         <h2 class="text-center">Liste des Enregistrements</h2>
 
         <div class="table-responsive">
@@ -10,6 +16,7 @@
                 <thead class="table-primary">
                     <tr>
                         <th>Date</th>
+                        <th>Heure</th>
                         <th>Température (°C)</th>
                         <th>Humidité (%)</th>
                         <th>Nombre d'œufs</th>
@@ -25,6 +32,7 @@
 
                         <tr>
                             <td>{{ entry.date }}</td>
+                            <td>{{ entry.time_slot }}</td> <!-- Affichage du créneau horaire -->
                             <td>{{ entry.temperature }}</td>
                             <td>{{ entry.humidity }}</td>
                             <td>{{ entry.egg_count }}</td>

@@ -1,0 +1,62 @@
+body {
+    background-color: #f8f9fa;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+}
+
+button {
+    font-weight: bold;
+}
+
+
+.card {
+    padding: 15px;
+}
+
+.card h4 {
+    color: #343a40;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 900px;
+}
+
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+a {
+    text-decoration: none;
+}
+
+a.fw-bold {
+    text-decoration: none;
+}

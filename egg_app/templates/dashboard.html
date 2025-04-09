@@ -7,6 +7,25 @@
     <div class="container mt-4">
         <h2 class="text-center">Dashboard - Analyse des Données</h2>
 
+
+    <!-- Formulaire de filtre par date -->
+    <!-- Formulaire de filtre par date amélioré -->
+    <form method="get" class="form-inline mb-3">
+        <div class="form-group mx-sm-3 mb-2">
+          {{ form.start_date.label_tag }} {{ form.start_date }}
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          {{ form.end_date.label_tag }} {{ form.end_date }}
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          {{ form.time_slot.label_tag }} {{ form.time_slot }}
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Filtrer</button>
+      </form>
+      
+
+
+
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="card shadow-sm p-3 mb-4 bg-white rounded">
@@ -30,6 +49,24 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Humidité vs Production d'œufs</h4>
+                    {{ humidity_eggs_graph|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Corrélation Température vs Humidité</h4>
+                    {{ temp_humidity_graph|safe }}
+                </div>
+            </div>
+        </div>
+
+
         <!-- <div class="card">
             <div class="card-body">
                 <h4 class="card-title text-center">Corrélation Température, Humidité et Production d'œufs</h4>
