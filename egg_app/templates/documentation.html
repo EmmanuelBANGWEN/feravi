@@ -19,7 +19,7 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f5f7fa;
+      background-color: #f8f9fa;
       color: #343a40;
     }
 
@@ -39,6 +39,8 @@
 
     h1, h2, h3 {
       font-weight: bold;
+      color: #007bff;
+
     }
 
     .content, .section {
@@ -55,7 +57,7 @@
     }
 
     footer a {
-      color: #198754;
+      color: #007bff;
       font-weight: bold;
     }
 
@@ -100,19 +102,19 @@
       <h2>1. Introduction</h2>
       <p>L’application <strong>Feravi stat</strong> permet d’enregistrer et d’analyser les conditions climatiques de la ferme.</p>
       <ul>
-        <li> Enregistrement des relevés climatiques et de ponte.</li>
-        <li> Affichage des données sous forme de tableau.</li>
-        <li> Visualisation des tendances avec des graphiques interactifs.</li>
-        <li> Exportation des données.</li>
+        <li>Enregistrement des relevés climatiques et de ponte.</li>
+        <li>Affichage des données sous forme de tableau.</li>
+        <li>Visualisation des tendances avec des graphiques interactifs.</li>
+        <li>Exportation des données.</li>
       </ul>
     </section>
 
     <section class="content">
-      <h2>2. Technologies Utilisées</h2>
+      <h2>2. Technologies utilisées</h2>
       <table class="table table-bordered">
         <tr><th>Composant</th><th>Technologie</th></tr>
         <tr><td>Back-end</td><td>Django</td></tr>
-        <tr><td>Base de données</td><td>SQLite </td></tr>
+        <tr><td>Base de données</td><td>SQLite</td></tr>
         <tr><td>Front-end</td><td>Bootstrap, HTML, CSS</td></tr>
         <tr><td>Visualisation</td><td>Plotly, Pandas</td></tr>
       </table>
@@ -161,53 +163,51 @@ python manage.py runserver
     </div>
 
     <div class="section">
-        <h2>📊 Explication des Graphiques</h2>
-      
-        <p>Voici les différents graphiques que vous pouvez consulter sur cette page. Ils vous aident à mieux comprendre l’état de votre élevage jour après jour.</p>
-      
-        <h3>🌡️ Température au fil des jours</h3>
-        <p>Ce graphique montre comment la température a changé chaque jour, à trois moments de la journée : le matin (08h), l’après-midi (13h) et le soir (17h). Cela vous permet de voir s’il fait trop chaud ou trop froid pour vos poules.</p>
-      
-        <h3>💧 Humidité au fil des jours</h3>
-        <p>Ce graphique affiche le niveau d’humidité chaque jour, aussi à 08h, 13h et 17h. Vous pouvez savoir si l’air est trop sec ou trop humide, ce qui peut influencer le bien-être des poules.</p>
-      
-        <h3>🥚 Production d’œufs par jour</h3>
-        <p>Ce graphique montre combien d’œufs ont été pondus chaque jour. Il est utile pour suivre la production et repérer les baisses ou les hausses.</p>
-      
-        <h3>💧 ➡️ 🥚 Humidité et œufs</h3>
-        <p>Ce graphique permet de voir s’il y a un lien entre le niveau d’humidité et le nombre d’œufs pondus. Par exemple, vous pourriez remarquer que les poules pondent plus quand l’air est un peu plus humide.</p>
-      
-        <h3>🌡️ ➡️ 💧 Température et humidité</h3>
-        <p>Ce graphique compare la température et l’humidité au même moment. Il permet de savoir s’il fait chaud et humide en même temps, ce qui peut avoir un impact sur les poules et la production.</p>
-      
-        <p><strong>Astuce :</strong> Utilisez les filtres en haut pour choisir une période précise ou un moment de la journée, et ainsi mieux comprendre ce qui se passe dans votre élevage.</p>
-      </div>
-      
+      <h2>Explication des graphiques</h2>
+      <p>Voici les différents graphiques que vous pouvez consulter. Ils vous aident à mieux comprendre l’état de votre élevage jour après jour.</p>
+
+      <h3>Température au fil des jours</h3>
+      <p>Ce graphique montre comment la température évolue chaque jour à trois moments clés : matin (08h), après-midi (13h) et soir (17h). Il aide à détecter les périodes trop chaudes ou trop froides.</p>
+
+      <h3>Humidité au fil des jours</h3>
+      <p>Affiche les niveaux d’humidité à différents moments de la journée. Utile pour vérifier si l’environnement est trop sec ou trop humide.</p>
+
+      <h3>Production d’œufs par jour</h3>
+      <p>Montre combien d’œufs sont pondus chaque jour. Cela aide à suivre la productivité de vos poules.</p>
+
+      <h3>Lien entre humidité et production</h3>
+      <p>Compare les niveaux d’humidité avec le nombre d’œufs produits. Cela peut révéler un lien entre les deux.</p>
+
+      <h3>Lien entre température et humidité</h3>
+      <p>Permet de voir si température et humidité sont élevées en même temps, ce qui pourrait influencer les conditions de l’élevage.</p>
+
+      <p><strong>Astuce :</strong> Utilisez les filtres en haut de la page pour cibler une période ou un moment spécifique.</p>
+    </div>
 
     <div class="section">
       <h2>Filtrer les données</h2>
-      <p>Choisissez une période ou un créneau horaire spécifique.</p>
+      <p>Vous pouvez sélectionner une période ou un moment de la journée spécifique pour analyser les données.</p>
     </div>
 
     <div class="section">
       <h2>À qui s’adresse l’application ?</h2>
       <ul>
-        <li>Éleveurs souhaitant suivre les performances</li>
-        <li>Améliorer les conditions de production</li>
+        <li>Aux éleveurs qui souhaitent suivre et améliorer la production.</li>
+        <li>À toute personne voulant comprendre les conditions de son élevage.</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>Exemple</h2>
-      <p><em>"Ce matin, j’ai mesuré 28°C et 65% d’humidité… Je vais maintenir ce niveau d’humidité."</em></p>
+      <h2>Exemple d’interprétation</h2>
+      <p><em>"Ce matin, j’ai mesuré 28°C et 65% d’humidité. Je vais maintenir ce niveau d’humidité."</em></p>
     </div>
 
     <div class="section">
-      <h2>Fiche technique</h2>
+      <h2>Résumé technique simplifié</h2>
       <ul>
-        <li>Données enregistrées : température, humidité, œufs, poules</li>
-        <li>Affichage interactif avec filtres</li>
-        <li>5 graphiques disponibles</li>
+        <li>Ce que vous enregistrez : température, humidité, œufs, nombre de poules</li>
+        <li>Ce que vous voyez : tableaux, graphiques interactifs</li>
+        <li>Fonctionnalités : filtres, exportation, vue quotidienne</li>
       </ul>
     </div>
   </div>
@@ -216,13 +216,14 @@ python manage.py runserver
   <footer class="text-center py-4">
     <div class="container">
       <p class="mb-0">&copy; 2025 Feravi stat</p>
-      <p>
-        <a href="https://www.linkedin.com/in/emmanuel-bangwen-75091117b/" target="_blank">
-          Emmanuel Bangwen
+      <p class="mb-0">
+        <a href="https://www.linkedin.com/in/emmanuel-bangwen-75091117b/" target="_blank" class=" fw-bold">
+            <i class="bi bi-linkedin"></i> Emmanuel Bangwen 
         </a>
-      </p>
+    </p> 
     </div>
   </footer>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

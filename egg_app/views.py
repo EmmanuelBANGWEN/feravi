@@ -63,7 +63,6 @@ def dashboard(request):
         start_date = form.cleaned_data.get("start_date")
         end_date = form.cleaned_data.get("end_date")
         time_slot = form.cleaned_data.get("time_slot")
-        print(df["time_slot"].unique())  # Affiche les valeurs présentes dans la colonne
 
         if start_date:
             dataset = dataset.filter(date__gte=start_date)
