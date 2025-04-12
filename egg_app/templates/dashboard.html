@@ -52,7 +52,7 @@
         <div class="row mt-4">
             <div class="col-md-12">
                 <div class="card shadow-sm p-3 mb-4 bg-white rounded">
-                    <h4 class="text-center">Humidité vs Production d'œufs</h4>
+                    <h4 class="text-center">Lien entre humidité et production d'oeufs</h4>
                     {{ humidity_eggs_graph|safe }}
                 </div>
             </div>
@@ -60,7 +60,15 @@
         <div class="row mt-4">
             <div class="col-md-12">
                 <div class="card shadow-sm p-3 mb-4 bg-white rounded">
-                    <h4 class="text-center">Corrélation Température vs Humidité</h4>
+                    <h4 class="text-center">Lien entre la temperature et la production d'oeufs</h4>
+                    {{ temp_eggs_graph|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow-sm p-3 mb-4 bg-white rounded">
+                    <h4 class="text-center">Lien entre la température et l'humidité</h4>
                     {{ temp_humidity_graph|safe }}
                 </div>
             </div>

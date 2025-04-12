@@ -44,7 +44,7 @@ def add_data(request):
             else:
                 form.save()
                 messages.success(request, "Données enregistrées avec succès !")
-            return redirect("add_data")  # Redirige vers la même page après soumission
+            return redirect("add_data")  
     else:
         form = DataForm()
 
@@ -87,17 +87,26 @@ def dashboard(request):
             x="humidity",
             y="egg_count",
             color="time_slot",
-            title="Humidité vs Production d'œufs",
+            # title="Humidité vs Production d'œufs",
             labels={"humidity": "Humidité (%)", "egg_count": "Nombre d'œufs"}
         )
         humidity_eggs_graph = fig_humidity_eggs.to_html(full_html=False)
+        fig_temp_eggs = px.scatter(
+            df,
+            x="temperature",
+            y="egg_count",
+            color="time_slot",
+            # title="temperature vs Production d'œufs",
+            labels={"temperature": "temperature (celcius)", "egg_count": "Nombre d'œufs"}
+        )
+        temp_eggs_graph = fig_temp_eggs.to_html(full_html=False)
 
         fig_temp_humidity = px.scatter(
             df,
             x="temperature",
             y="humidity",
             color="time_slot",  # pour distinguer les créneaux
-            title="Corrélation Température vs Humidité",
+            # title="Corrélation Température vs Humidité",
             labels={"temperature": "Température (°C)", "humidity": "Humidité (%)"},
         )
         temp_humidity_graph = fig_temp_humidity.to_html(full_html=False)
@@ -114,7 +123,8 @@ def dashboard(request):
         "temp_graph": temp_graph,
         "humidity_graph": humidity_graph,
         "egg_graph": egg_graph,
-        "humidity_eggs_graph": humidity_eggs_graph,  # <-- nouveau graphique
+        "humidity_eggs_graph": humidity_eggs_graph,  
+        "temp_eggs_graph": temp_eggs_graph,
         "temp_humidity_graph": temp_humidity_graph, 
 
     })
