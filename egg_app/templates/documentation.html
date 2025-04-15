@@ -6,65 +6,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documentation - Feravi stat</title>
-  <link
-  rel="icon"
-  href="{% static 'feravik.png'%}"
-  type="image/x-icon"
-/>
-  <!-- Google Fonts -->
+  <link rel="icon" href="{% static 'feravik.png'%}" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/documentation.css' %}" />
-
   <style>
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
       color: #343a40;
     }
-
     .navbar {
       background-color: #007bff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     .navbar-brand img {
       height: 50px;
     }
-
     .nav-link {
       font-weight: bold;
       color: #fff !important;
     }
-
     h1, h2, h3 {
       font-weight: bold;
       color: #007bff;
-
     }
-
     .content, .section {
       margin-bottom: 40px;
     }
-
     .table th, .table td {
       text-align: center;
     }
-
     footer {
       background-color: #fff;
       border-top: 1px solid #dee2e6;
     }
-
     footer a {
       color: #007bff;
       font-weight: bold;
     }
-
     pre {
       background-color: #e9ecef;
       padding: 15px;
@@ -74,59 +54,73 @@
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a href="/" class="navbar-brand">
-        <img src="{% static 'feravik.png' %}" alt="Feravi stat" />
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Accueil</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Content -->
-  <div class="container py-5">
-    <header class="text-center mb-5">
-      <h1>Documentation - Feravi stat</h1>
-      <p class="lead">Guide d'utilisation de l'application de suivi de la production de poules pondeuses</p>
-    </header>
-
-    <section class="content">
-      <h2>1. Introduction</h2>
-      <p>L’application <strong>Feravi stat</strong> permet d’enregistrer et d’analyser les conditions climatiques de la ferme.</p>
-      <ul>
-        <li>Enregistrement des relevés climatiques et de ponte.</li>
-        <li>Affichage des données sous forme de tableau.</li>
-        <li>Visualisation des tendances avec des graphiques interactifs.</li>
-        <li>Exportation des données.</li>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      <img src="{% static 'feravik.png' %}" alt="Feravi stat" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Accueil</a>
+        </li>
       </ul>
-    </section>
+    </div>
+  </div>
+</nav>
 
-    <section class="content">
-      <h2>2. Technologies utilisées</h2>
-      <table class="table table-bordered">
-        <tr><th>Composant</th><th>Technologie</th></tr>
-        <tr><td>Back-end</td><td>Django</td></tr>
-        <tr><td>Base de données</td><td>SQLite</td></tr>
-        <tr><td>Front-end</td><td>Bootstrap, HTML, CSS</td></tr>
-        <tr><td>Visualisation</td><td>Plotly, Pandas</td></tr>
-      </table>
-    </section>
+<div class="container py-5">
+  <header class="text-center mb-5">
+    <h1>Documentation - Feravi stat</h1>
+    <p class="lead">Application de suivi climatique et de production d'œufs pour les fermes avicoles</p>
+  </header>
 
-    <section class="content">
-      <h2>3. Installation</h2>
-      <pre>
+  <section class="content">
+    <h2>1. Objectif du projet</h2>
+    <p>Le projet <strong>Feravi stat</strong> a été conçu pour aider les éleveurs de poules pondeuses à mieux comprendre l’impact des conditions climatiques sur la production d’œufs. L’objectif est de faciliter la prise de décision grâce à une meilleure lecture des données environnementales et de production.</p>
+  </section>
+
+  <section class="content">
+    <h2>2. Source d’inspiration</h2>
+    <p>Ce projet est né d’un constat sur le terrain : de nombreux éleveurs ne disposent pas d’outils simples et accessibles pour faire le lien entre les conditions de leur élevage et la productivité de leurs animaux. Cette application répond donc à un besoin réel de suivi quotidien et d’analyse sans nécessiter de connaissances informatiques avancées.</p>
+  </section>
+
+  <section class="content">
+    <h2>3. Comment fonctionne l’application ?</h2>
+    <p>L’utilisateur enregistre chaque jour les conditions de température et d’humidité à trois moments précis (08h, 13h et 17h) ainsi que le nombre d’œufs pondus. Ces données sont stockées dans une base et visualisées sous forme de tableaux et graphiques dynamiques.</p>
+    <ul>
+      <li>Relevé manuel des données par l’éleveur</li>
+      <li>Saisie via l’interface web</li>
+      <li>Visualisation automatique via des graphiques (Plotly)</li>
+    </ul>
+  </section>
+
+  <section class="content">
+    <h2>4. Résultats attendus</h2>
+    <ul>
+      <li>Amélioration de la productivité par l’ajustement de l’environnement</li>
+      <li>Découverte de tendances ou corrélations (ex. humidité élevée = baisse de production)</li>
+      <li>Optimisation des pratiques d’élevage sur base de données concrètes</li>
+    </ul>
+  </section>
+
+  <section class="content">
+    <h2>5. Technologies utilisées</h2>
+    <table class="table table-bordered">
+      <tr><th>Composant</th><th>Technologie</th></tr>
+      <tr><td>Back-end</td><td>Django</td></tr>
+      <tr><td>Base de données</td><td>SQLite</td></tr>
+      <tr><td>Front-end</td><td>Bootstrap, HTML, CSS</td></tr>
+      <tr><td>Visualisation</td><td>Plotly, Pandas</td></tr>
+    </table>
+  </section>
+
+  <section class="content">
+    <h2>6. Installation</h2>
+    <pre>
 git clone &lt;repo_url&gt;
 cd egg
 python -m venv venv
@@ -134,102 +128,87 @@ Windows : venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-      </pre>
-    </section>
+    </pre>
+  </section>
 
-    <div class="section">
-      <h2>Étapes d'utilisation</h2>
-      <h3>1. Collecte des données</h3>
-      <p>Utilisez un hydrothermomètre pour mesurer :</p>
-      <ul>
-        <li>La température</li>
-        <li>L’humidité</li>
-      </ul>
-      <p>Mesures à prendre à :</p>
-      <ul>
-        <li>08:00</li>
-        <li>13:00</li>
-        <li>17:00</li>
-      </ul>
+  <section class="content">
+    <h2>7. Étapes d'utilisation</h2>
+    <h3>- Collecte des données</h3>
+    <p>Relever les informations suivantes trois fois par jour (08h, 13h, 17h) :</p>
+    <ul>
+      <li>Température (°C)</li>
+      <li>Humidité (%)</li>
+      <li>Nombre d’œufs pondus</li>
+      <li>Nombre de poules</li>
+    </ul>
 
-      <h3>2. Enregistrement des données</h3>
-      <ul>
-        <li>Date</li>
-        <li>Créneau horaire</li>
-        <li>Température</li>
-        <li>Humidité</li>
-        <li>Nombre d’œufs</li>
-        <li>Nombre de poules</li>
-      </ul>
+    <h3>- Enregistrement</h3>
+    <p>Rendez-vous dans le formulaire de saisie pour entrer les relevés de la journée.</p>
 
-      <h3>3. Visualisation</h3>
-      <p>Accédez à des graphiques interactifs depuis le tableau de bord.</p>
-    </div>
+    <h3>- Visualisation</h3>
+    <p>Les données sont converties en graphiques lisibles depuis le tableau de bord.</p>
+  </section>
 
-    <div class="section">
-      <h2>Explication des graphiques</h2>
-      <p>Voici les différents graphiques que vous pouvez consulter. Ils vous aident à mieux comprendre l’état de votre élevage jour après jour.</p>
+  <section class="content">
+    <h2>8. Explication des graphiques</h2>
+    <p>Chaque graphique est conçu pour être compréhensible même pour un non-informaticien. Voici ce que vous pouvez observer :</p>
 
-      <h3>- Évolution de la Température</h3>
-      <p>Ce graphique montre comment la température évolue chaque jour à trois moments clés : matin (08h), après-midi (13h) et soir (17h). Il aide à détecter les périodes trop chaudes ou trop froides.</p>
+    <h3>- Évolution de la Température</h3>
+    <p>Visualisez la variation de température à 08h, 13h et 17h. Permet d’identifier les jours trop chauds ou froids.</p>
 
-      <h3>- Évolution de l’Humidité</h3>
-      <p>Affiche les niveaux d’humidité à différents moments de la journée. Utile pour vérifier si l’environnement est trop sec ou trop humide.</p>
+    <h3>- Évolution de l’Humidité</h3>
+    <p>Suivi des taux d’humidité sur les mêmes créneaux horaires pour évaluer la qualité de l’air ambiant.</p>
 
-      <h3>- Production d'œufs quotidienne</h3>
-      <p>Montre combien d’œufs sont pondus chaque jour. Cela aide à suivre la productivité de vos poules.</p>
+    <h3>- Production quotidienne d’œufs</h3>
+    <p>Affiche le nombre total d’œufs pondus chaque jour. Aide à détecter des baisses ou pics de production.</p>
 
-      <h3>- Lien entre humidité et production</h3>
-      <p>Compare les niveaux d’humidité avec le nombre d’œufs produits. Cela peut révéler un lien entre les deux.</p>
+    <h3>- Corrélation humidité / production</h3>
+    <p>Met en évidence s’il existe un lien direct entre humidité et production d’œufs.</p>
 
-      <h3>- Lien entre température et humidité</h3>
-      <p>Permet de voir si température et humidité sont élevées en même temps, ce qui pourrait influencer les conditions de l’élevage.</p>
+    <h3>- Corrélation température / humidité</h3>
+    <p>Compare les deux paramètres pour voir s’ils varient ensemble ou non.</p>
 
-      <p><strong>Astuce :</strong> Utilisez les filtres en haut de la page pour cibler une période ou un moment spécifique.</p>
-    </div>
+    <p><strong>Comment lire les graphiques :</strong></p>
+    <ul>
+      <li>Pointez sur les points pour voir les valeurs exactes.</li>
+      <li>Utilisez les menus déroulants pour filtrer par date ou heure.</li>
+      <li>Comparez visuellement plusieurs jours pour repérer les anomalies ou tendances.</li>
+    </ul>
+  </section>
 
-    <div class="section">
-      <h2>Filtrer les données</h2>
-      <p>Vous pouvez sélectionner une période ou un moment de la journée spécifique pour analyser les données.</p>
-    </div>
+  <section class="content">
+    <h2>9. Filtres et analyses personnalisées</h2>
+    <p>Utilisez les filtres disponibles dans le tableau de bord pour :</p>
+    <ul>
+      <li>Comparer plusieurs jours</li>
+      <li>Zoomer sur une période précise</li>
+      <li>Observer un moment particulier de la journée</li>
+    </ul>
+  </section>
 
-    <!-- <div class="section">
-      <h2>À qui s’adresse l’application ?</h2>
-      <ul>
-        <li>Aux éleveurs qui souhaitent suivre et améliorer la production.</li>
-        <li>À toute personne voulant comprendre les conditions de son élevage.</li>
-      </ul>
-    </div> -->
+  <section class="content">
+    <h2>10. Résumé technique simplifié</h2>
+    <ul>
+      <li><strong>Données saisies :</strong> température, humidité, œufs, poules</li>
+      <li><strong>Résultats affichés :</strong> tableaux de données + graphiques</li>
+      <li><strong>Fonctionnalités :</strong> filtres, graphiques interactifs, exportation</li>
+    </ul>
+  </section>
+</div>
 
-    <!-- <div class="section">
-      <h2>Exemple d’interprétation</h2>
-      <p><em>"Ce matin, j’ai mesuré 28°C et 65% d’humidité. Je vais maintenir ce niveau d’humidité."</em></p>
-    </div> -->
-
-    <div class="section">
-      <h2>Résumé technique simplifié</h2>
-      <ul>
-        <li>Ce que vous enregistrez : température, humidité, œufs, nombre de poules</li>
-        <li>Ce que vous voyez : tableaux, graphiques interactifs</li>
-        <li>Fonctionnalités : filtres, exportation, vue quotidienne</li>
-      </ul>
-    </div>
+<footer class="text-center py-4">
+  <div class="container">
+    <p class="mb-0">&copy; 2025 Feravi stat</p>
+    <p class="mb-0">
+      <a href="https://www.linkedin.com/in/emmanuel-bangwen-75091117b/" target="_blank" class="fw-bold">
+        <i class="bi bi-linkedin"></i> Emmanuel Bangwen
+      </a>
+    </p>
   </div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="text-center py-4">
-    <div class="container">
-      <p class="mb-0">&copy; 2025 Feravi stat</p>
-      <p class="mb-0">
-        <a href="https://www.linkedin.com/in/emmanuel-bangwen-75091117b/" target="_blank" class=" fw-bold">
-            <i class="bi bi-linkedin"></i> Emmanuel Bangwen 
-        </a>
-    </p> 
-    </div>
-  </footer>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

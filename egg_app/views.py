@@ -90,7 +90,7 @@ def dashboard(request):
             # title="Humidité vs Production d'œufs",
             labels={"humidity": "Humidité (%)", "egg_count": "Nombre d'œufs"}
         )
-        humidity_eggs_graph = fig_humidity_eggs.to_html(full_html=False)
+        humidity_eggs_graph = fig_humidity_eggs.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
         fig_temp_eggs = px.scatter(
             df,
             x="temperature",
@@ -99,7 +99,7 @@ def dashboard(request):
             # title="temperature vs Production d'œufs",
             labels={"temperature": "temperature (celcius)", "egg_count": "Nombre d'œufs"}
         )
-        temp_eggs_graph = fig_temp_eggs.to_html(full_html=False)
+        temp_eggs_graph = fig_temp_eggs.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
 
         fig_temp_humidity = px.scatter(
             df,
@@ -109,12 +109,12 @@ def dashboard(request):
             # title="Corrélation Température vs Humidité",
             labels={"temperature": "Température (°C)", "humidity": "Humidité (%)"},
         )
-        temp_humidity_graph = fig_temp_humidity.to_html(full_html=False)
+        temp_humidity_graph = fig_temp_humidity.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
 
 
-        temp_graph = fig_temp.to_html(full_html=False)
-        humidity_graph = fig_humidity.to_html(full_html=False)
-        egg_graph = fig_eggs.to_html(full_html=False)
+        temp_graph = fig_temp.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
+        humidity_graph = fig_humidity.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
+        egg_graph = fig_eggs.to_html(full_html=False, include_plotlyjs=False, config={"responsive": True})
     else:
         temp_graph = humidity_graph = egg_graph = "<p class='text-center'>Aucune donnée disponible</p>"
 
