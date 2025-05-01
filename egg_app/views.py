@@ -13,7 +13,7 @@ def home(request):
     dataset = Data.objects.all().order_by("-date", "-time_slot")  # Trier par date et heure décroissantes
 
 
-    paginator = Paginator(dataset, 6)
+    paginator = Paginator(dataset, 12)
     page = request.GET.get('page')
     try:
         dataset = paginator.page(page)
